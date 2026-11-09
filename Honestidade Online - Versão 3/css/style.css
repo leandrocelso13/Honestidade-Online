@@ -1,0 +1,259 @@
+:root {
+    --azul-claro: #cfe8fc;
+    --azul-texto: #0b3d66;
+    --azul-destaque: #0d6efd;
+    --borda-preta: 2px solid #000;
+    --vinho-profundo: #630d16;
+    --vinho-hover: #4a0910;
+    --dourado-suave: #c5a059;
+    --fundo-creme: #fdfaf5;
+    --borda-creme: #e6d7c3;
+}
+
+/* Fundo de todas as páginas */
+body {
+    background-color: var(--azul-claro);
+    color: var(--azul-texto);
+}
+
+/* Navbar */
+.navbar-azul {
+    background-color: var(--azul-claro);
+    border: var(--borda-preta);
+}
+
+.navbar-azul .nav-link {
+    color: var(--azul-texto);
+}
+
+.navbar-azul .nav-link:hover,
+.navbar-azul .nav-link.active {
+    color: var(--azul-destaque);
+    font-weight: 600;
+}
+
+/* Botão hambúrguer */
+.navbar-azul .navbar-toggler {
+    border: var(--borda-preta);
+}
+
+/* Footer */
+.footer-azul {
+    background-color: var(--azul-claro);
+    color: var(--azul-texto);
+    border: var(--borda-preta);
+}
+
+/* Todos os cards do site: mesma cor de fundo, texto e borda do navbar e do footer */
+.card {
+    background-color: var(--azul-claro);
+    color: var(--azul-texto);
+    border: var(--borda-preta);
+}
+
+/* Catálogo dinâmico */
+#catalogo-produtos {
+    max-width: 900px;
+    margin-inline: auto;
+}
+
+/* ==========================================================================
+   ESTILOS DO CARD AUTORAL DE PRODUTOS (produtos.js)
+   ========================================================================== */
+.card.product-card {
+    background: linear-gradient(180deg, #ffffff 0%, var(--fundo-creme) 100%);
+    color: var(--vinho-profundo);
+    border: 1px solid var(--borda-creme);
+    border-radius: 1.25rem;
+    width: 100%;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.05),
+        0 24px 48px rgba(197, 160, 89, 0.10);
+}
+
+.product-card .card-title {
+    color: var(--vinho-profundo);
+    letter-spacing: 0.01em;
+}
+
+.product-subtitle {
+    color: rgba(99, 13, 22, 0.72);
+}
+
+.product-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 0.85rem;
+}
+
+/* Badges (Publicidade e Formato) */
+.product-badge,
+.product-format {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-weight: 600;
+    border-radius: 50px;
+    letter-spacing: 0.03em;
+}
+
+.product-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--vinho-profundo);
+    background-color: rgba(99, 13, 22, 0.08);
+    border: 1px solid rgba(99, 13, 22, 0.2);
+}
+
+.product-format {
+    font-size: 0.85rem;
+    color: #5a4306;
+    background-color: rgba(197, 160, 89, 0.15);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+}
+
+/* Imagens do Produto com Efeito Zoom */
+.product-thumb-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid var(--borda-creme);
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-thumb {
+    display: block;
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.product-thumb-wrap:hover,
+.product-thumb-wrap:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(99, 13, 22, 0.15);
+    outline: 2px solid var(--dourado-suave);
+}
+
+.product-thumb-wrap:hover .product-thumb,
+.product-thumb-wrap:focus-within .product-thumb {
+    transform: scale(1.03);
+}
+
+.product-thumb:focus-visible {
+    outline: none; /* O outline já é dado no wrap acima pelo focus-within */
+}
+
+/* Rodapé e Preço */
+.product-card-footer {
+    background-color: transparent;
+}
+
+.product-price-anchor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+}
+
+.product-price-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(99, 13, 22, 0.62);
+}
+
+.product-price {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--vinho-profundo);
+}
+
+/* Botão CTA com Animação */
+.btn-vinho {
+    background-color: var(--vinho-profundo);
+    color: #fff;
+    border: 2px solid var(--dourado-suave);
+    box-shadow: 0 8px 18px rgba(99, 13, 22, 0.28);
+    transition: all 0.3s ease;
+}
+
+.btn-vinho:hover,
+.btn-vinho:focus-visible {
+    background-color: var(--vinho-hover);
+    color: #fff;
+    border-color: var(--dourado-suave);
+    transform: translateY(-3px);
+    animation: pulso-cta 1.2s ease-in-out infinite;
+}
+
+.btn-vinho:active {
+    transform: translateY(-1px);
+    animation: none;
+}
+
+@keyframes pulso-cta {
+    0%, 100% {
+        box-shadow: 0 8px 16px rgba(99, 13, 22, 0.3);
+    }
+    50% {
+        box-shadow: 0 14px 28px rgba(197, 160, 89, 0.48);
+    }
+}
+
+/* Benefícios (Lista de Ícones) */
+.product-trust {
+    font-size: 0.9rem;
+    color: rgba(99, 13, 22, 0.78);
+}
+
+.product-trust i {
+    color: var(--dourado-suave);
+}
+
+/* Modal Lightbox */
+.product-lightbox-modal .modal-content {
+    background-color: #1a0a0c;
+    color: var(--fundo-creme);
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    border-radius: 1rem;
+}
+
+.product-lightbox-modal .modal-header,
+.product-lightbox-modal .modal-footer {
+    border-color: rgba(197, 160, 89, 0.2);
+}
+
+.product-lightbox-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+}
+
+.product-lightbox-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.product-lightbox-image {
+    max-height: min(64vh, 720px);
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.product-lightbox-counter {
+    font-variant-numeric: tabular-nums;
+    color: var(--dourado-suave);
+    font-weight: 600;
+}
+
+.product-lightbox-footer .btn-vinho {
+    align-self: center;
+}

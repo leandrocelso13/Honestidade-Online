@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produtos Recomendados | Honestidade Online</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (Necessário para os ícones do array de benefícios) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- O Navbar será injetado aqui automaticamente -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container flex-grow-1 py-4">
+        <header class="text-center mb-5">
+            <h1 class="fw-bold">Indicações com Transparência</h1>
+            <p class="text-muted">Produtos avaliados e selecionados criteriosamente pela Honestidade Online.</p>
+        </header>
+        
+        <!-- Os cards de produtos serão gerados automaticamente aqui pelo produtos.js -->
+        <div id="catalogo-produtos" class="d-flex flex-column gap-5"></div>
+    </main>
+
+    <!-- Modal Lightbox Único (IDs ajustados para compatibilidade com o seu JS) -->
+    <div class="modal fade" id="productLightboxModal" tabindex="-1" aria-labelledby="productLightboxTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-dark text-white border-0 shadow-lg">
+                <div class="modal-header border-secondary py-2 d-flex justify-content-between align-items-center">
+                    <h5 class="modal-title fs-6 text-truncate w-75" id="productLightboxTitle"></h5>
+                    <span id="productLightboxCounter" class="small text-light fw-semibold mx-3"></span>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                
+                <div class="modal-body p-2 text-center position-relative">
+                    <img id="productLightboxImage" class="img-fluid rounded" style="max-height: 75vh;" alt="Carregando imagem...">
+                </div>
+                
+                <div class="modal-footer border-secondary py-2 d-flex justify-content-between align-items-center">
+                    <button type="button" class="btn btn-sm btn-outline-light px-3" id="productLightboxPrev" aria-label="Imagem Anterior">
+                        <i class="bi bi-arrow-left" aria-hidden="true"></i> Anterior
+                    </button>
+                    
+                    <a href="#" id="productLightboxCta" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-warning fw-bold px-3">
+                        <i class="bi bi-cart-fill me-1" aria-hidden="true"></i>
+                        <span id="productLightboxCtaLabel">Comprar Agora</span>
+                    </a>
+                    
+                    <button type="button" class="btn btn-sm btn-outline-light px-3" id="productLightboxNext" aria-label="Próxima Imagem">
+                        Próxima <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- O Footer será injetado aqui automaticamente -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script principal (navbar e footer) -->
+    <script src="javascript/main.js"></script>
+
+    <!-- Script de produtos (o código que você enviou para conferência) -->
+    <script src="javascript/produtos.js"></script>
+</body>
+</html>

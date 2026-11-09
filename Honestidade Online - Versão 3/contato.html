@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contato - Honestidade Online</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- O Navbar será injetado aqui automaticamente -->
+    <div id="navbar-placeholder"></div>
+
+    <main class="container flex-grow-1 py-4">
+        <h1 class="text-center">Contato</h1>
+        <p class="text-center">Fale com a Honestidade Online para tirar dúvidas e saber mais sobre nossas notícias, serviços e produtos.</p>
+
+        <div class="row g-4 mt-2">
+
+            <!-- Informações de contato -->
+            <div class="col-12 col-lg-5">
+                <div class="card h-100">
+                    <div class="card-body p-4">
+                        <h2 class="h4 mb-4">Nossos canais</h2>
+
+                        <h3 class="h6 mb-1">E-mail</h3>
+                        <p class="mb-4">
+                            <a href="mailto:contato@honestidadeonline.com.br">contato@honestidadeonline.com.br</a>
+                        </p>
+
+                        <h3 class="h6 mb-1">Site</h3>
+                        <p class="mb-4">
+                            <a href="https://honestidadeonline.com.br">honestidadeonline.com.br</a>
+                        </p>
+
+                        <h3 class="h6 mb-1">Sobre o que você pode falar com a gente</h3>
+                        <ul class="mb-0">
+                            <li>Produtos digitais</li>
+                            <li>Notícias sobre tecnologia</li>
+                            <li>Serviços: landing pages, sites institucionais e projetos sob medida</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário -->
+            <div class="col-12 col-lg-7">
+                <div class="card h-100">
+                    <div class="card-body p-4">
+                        <h2 class="h4 mb-4">Envie sua mensagem</h2>
+
+                        <form id="form-contato">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" id="nome" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Seu e-mail</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="assunto" class="form-label">Assunto</label>
+                                <select id="assunto" class="form-select" required>
+                                    <option value="" selected disabled>Escolha um assunto</option>
+                                    <option>Serviços (sites)</option>
+                                    <option>Produtos digitais</option>
+                                    <option>Notícias</option>
+                                    <option>Outro assunto</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea id="mensagem" class="form-control" rows="5" required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark">Enviar mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- O Footer será injetado aqui automaticamente -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript do Bootstrap (necessário para o menu hambúrguer) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script que carrega o navbar e o footer -->
+    <script src="javascript/main.js"></script>
+
+    <!-- Envio do formulário: abre o programa de e-mail do visitante já preenchido -->
+    <script>
+        document.getElementById("form-contato").addEventListener("submit", evento => {
+            evento.preventDefault();
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const assunto = document.getElementById("assunto").value;
+            const mensagem = document.getElementById("mensagem").value.trim();
+
+            const titulo = `Contato pelo site: ${assunto}`;
+            const corpo = `Nome: ${nome}\nE-mail: ${email}\n\n${mensagem}`;
+
+            window.location.href = "mailto:contato@honestidadeonline.com.br"
+                + `?subject=${encodeURIComponent(titulo)}`
+                + `&body=${encodeURIComponent(corpo)}`;
+        });
+    </script>
+</body>
+</html>
